@@ -1,4 +1,4 @@
-(function($) {
+(function ($) {
     "use strict";
 
     /*****************************
@@ -10,7 +10,7 @@
     /****************************
      * Sticky Menu
      *****************************/
-    $(window).on('scroll', function() {
+    $(window).on('scroll', function () {
         var scroll = $(window).scrollTop();
         if (scroll < 100) {
             $(".sticky-header").removeClass("sticky");
@@ -22,12 +22,12 @@
     /*****************************
      * Off Canvas Function
      *****************************/
-    (function() {
+    (function () {
         var $offCanvasToggle = $('.offcanvas-toggle'),
             $offCanvas = $('.offcanvas'),
             $offCanvasOverlay = $('.offcanvas-overlay'),
             $mobileMenuToggle = $('.mobile-menu-toggle');
-        $offCanvasToggle.on('click', function(e) {
+        $offCanvasToggle.on('click', function (e) {
             e.preventDefault();
             var $this = $(this),
                 $target = $this.attr('href');
@@ -38,7 +38,7 @@
                 $this.addClass('close');
             }
         });
-        $('.offcanvas-close, .offcanvas-overlay').on('click', function(e) {
+        $('.offcanvas-close, .offcanvas-overlay').on('click', function (e) {
             e.preventDefault();
             $body.removeClass('offcanvas-open');
             $offCanvas.removeClass('offcanvas-open');
@@ -59,7 +59,7 @@
         $offCanvasNavSubMenu.parent().prepend('<div class="offcanvas-menu-expand"></div>');
 
         /*Category Sub Menu Toggle*/
-        $offCanvasNav.on('click', 'li a, .offcanvas-menu-expand', function(e) {
+        $offCanvasNav.on('click', 'li a, .offcanvas-menu-expand', function (e) {
             var $this = $(this);
             if ($this.attr('href') === '#' || $this.hasClass('offcanvas-menu-expand')) {
                 e.preventDefault();
@@ -93,12 +93,12 @@
         speed: 1500,
         watchSlidesProgress: true,
         loop: true,
-        // autoplay: true,
+        autoplay: true,
         pagination: {
             el: '.swiper-pagination',
             clickable: true,
         },
-       
+
     });
 
 
@@ -123,7 +123,7 @@
             },
             576: {
                 slidesPerView: 2,
-                
+
             },
             768: {
                 slidesPerView: 2,
@@ -137,11 +137,11 @@
             1800: {
                 slidesPerView: 4,
             }
-            
+
         }
     });
 
-    
+
     /****************************************
      *   Client Logo - 6 Grids 1 Row
      *****************************************/
@@ -171,7 +171,7 @@
             1800: {
                 slidesPerView: 6,
             }
-            
+
         }
     });
 
@@ -203,7 +203,7 @@
             1400: {
                 slidesPerView: 2,
             }
-            
+
         }
     });
 
@@ -219,42 +219,42 @@
     /************************************************
      * Video  Popup
      ***********************************************/
-    $('.video-play-btn').venobox(); 
+    $('.video-play-btn').venobox();
 
     /************************************************
      * Scroll Top
      ***********************************************/
     $('body').materialScrollTop();
-    
-    
+
+
     /************************************************
      * Project Filter
      ***********************************************/
-      $('.projects-wrapper').imagesLoaded( function() {
+    $('.projects-wrapper').imagesLoaded(function () {
         // filter items on button click
-         $('.projects-gallery-filter-nav').on( 'click', 'button', function() {
+        $('.projects-gallery-filter-nav').on('click', 'button', function () {
             var filterValue = $(this).attr('data-filter');
             $grid.isotope({ filter: filterValue });
-             
+
             $(this).siblings('.active').removeClass('active');
             $(this).addClass('active');
-         });
+        });
 
-         // init Isotope
+        // init Isotope
         var $grid = $('.projects-wrapper').isotope({
             itemSelector: '.filtr-item',
-             percentPosition: true,
-             masonry: {
-                 columnWidth: '.filtr-item'
-             }
-         });
-     });
+            percentPosition: true,
+            masonry: {
+                columnWidth: '.filtr-item'
+            }
+        });
+    });
 
 
-     /************************************************
-     * Hash Link Scroll To Top Prevent
-     ***********************************************/
-     $('a[href="#"]').on('click', (function(e) {
+    /************************************************
+    * Hash Link Scroll To Top Prevent
+    ***********************************************/
+    $('a[href="#"]').on('click', (function (e) {
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
     }));
 
