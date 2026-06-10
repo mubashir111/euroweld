@@ -19238,7 +19238,7 @@ textarea {
 
 @media (min-width: 1400px) {
   .hero-bg {
-    height: 1100px;
+    height: 850px;
   }
 }
 
@@ -19324,7 +19324,7 @@ textarea {
 
 @media (min-width: 1400px) {
   .hero-slider-single-item .title {
-    font-size: 125px;
+    font-size: 95px;
     line-height: 0.85;
     margin-bottom: -10px;
   }
@@ -19349,7 +19349,7 @@ textarea {
 
 @media (min-width: 1400px) {
   .hero-slider-single-item .sub-title {
-    font-size: 80px;
+    font-size: 60px;
     line-height: 1;
     margin-top: 15px;
     margin-bottom: 50px;

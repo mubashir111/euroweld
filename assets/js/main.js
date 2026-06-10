@@ -245,7 +245,7 @@
             itemSelector: '.filtr-item',
             percentPosition: true,
             masonry: {
-                columnWidth: '.filtr-item'
+                columnWidth: '.grid-sizer'
             }
         });
     });
