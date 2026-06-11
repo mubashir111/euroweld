@@ -24078,3 +24078,27 @@ footer a:hover {
 }
 
 
+
+/* Footer & Back-to-Top Mobile Fixes */
+@media (max-width: 768px) {
+    /* Push back-to-top button up above the mobile bottom nav */
+    .material-scrolltop {
+        bottom: 90px !important; 
+        right: 15px !important;
+    }
+    
+    /* Reduce massive gaps between footer sections */
+    .footer-center .col-12.mb-5 {
+        margin-bottom: 35px !important;
+    }
+
+    /* Reduce vertical spacing between Quick Links */
+    .footer-nav a {
+        margin-bottom: 8px !important;
+    }
+    
+    /* Adjust WhatsApp Button */
+    .footer-widget-single-item ul li.mt-3 {
+        margin-top: 5px !important;
+    }
+}
