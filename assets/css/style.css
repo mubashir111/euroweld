@@ -18250,23 +18250,23 @@ textarea {
 }
 
 .hero-slider-active .hero-slider-single-item.swiper-slide-active .hero-content .sup-title {
-  -webkit-animation: fadeInDown 1.5s ease 0.8s 1 backwards;
-  animation: fadeInDown 1.5s ease 0.8s 1 backwards;
+  -webkit-animation: fadeInDown 1.0s ease 0.2s 1 backwards;
+  animation: fadeInDown 1.0s ease 0.2s 1 backwards;
 }
 
 .hero-slider-active .hero-slider-single-item.swiper-slide-active .hero-content .title {
-  -webkit-animation: fadeInDown 1.2s ease 1.8s 1 backwards;
-  animation: fadeInDown 1.2s ease 1.8s 1 backwards;
+  -webkit-animation: fadeInDown 1.0s ease 0.4s 1 backwards;
+  animation: fadeInDown 1.0s ease 0.4s 1 backwards;
 }
 
 .hero-slider-active .hero-slider-single-item.swiper-slide-active .hero-content .sub-title {
-  -webkit-animation: fadeInDown 1.2s ease 2.5s 1 backwards;
-  animation: fadeInDown 1.2s ease 2.5s 1 backwards;
+  -webkit-animation: fadeInDown 1.0s ease 0.6s 1 backwards;
+  animation: fadeInDown 1.0s ease 0.6s 1 backwards;
 }
 
 .hero-slider-active .hero-slider-single-item.swiper-slide-active .hero-content .btn {
-  -webkit-animation: zoomIn 0.8s ease 3s 1 backwards;
-  animation: zoomIn 0.8s ease 3s 1 backwards;
+  -webkit-animation: zoomIn 0.8s ease 0.8s 1 backwards;
+  animation: zoomIn 0.8s ease 0.8s 1 backwards;
 }
 
 /*Default Navigation Style*/
@@ -18916,10 +18916,11 @@ textarea {
   color: #301514;
 }
 
-.header-bottom .social-link-white a,
+.sticky .social-link-white a,
 .mobile-header .social-link-white a {
-  border: 1px solid #313131;
-  color: #313131;
+  border: 2px solid #111;
+  color: #111;
+  opacity: 0.9;
 }
 
 .social-link a {
@@ -20982,7 +20983,7 @@ textarea {
 
 @media (min-width: 1200px) {
   .breadcrumb-wrapper .image {
-    height: auto;
+    height: 450px;
   }
 }
 
@@ -23582,4 +23583,89 @@ Components - Sidebar Widget
 
 .no-csspointerevents .nice-select.open .list {
   display: block;
+}
+.header-bottom:not(.sticky) .social-link-white a {
+  border: 2px solid rgba(255, 255, 255, 0.7) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+}
+
+.sticky .social-link-white a {
+  border: 2px solid #111 !important;
+  color: #111 !important;
+  opacity: 0.9 !important;
+}
+
+/* Fix header alignment */
+.header-bottom .container .row {
+    align-items: center;
+}
+
+/* Fix social icon sizing */
+.social-link a {
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Ensure service titles are visible */
+.service-single-item .title {
+    color: #3f2f2f !important;
+}
+
+.service-single-item:hover .title {
+    background: linear-gradient(90deg, #f7911e 0%, #f7911e 100%) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+}
+
+/* Brighten the footer typography for perfect readability */
+footer, .contact-us, .recent-news {
+    color: #E0E0E0 !important;
+}
+
+footer a, .recent-news a {
+    color: #FFFFFF !important;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #E99640 !important;
+}
+
+/* Ensure email input text is highly visible */
+.newsletter-form-group input {
+    color: #FFFFFF !important;
+}
+
+
+
+/* Force maximum readability on all service/product cards */
+.service-single-item .content p {
+    color: #2F3538 !important; /* A sharp, deep charcoal gray */
+    font-weight: 500 !important; /* Slightly heavier weight so it pops */
+    line-height: 1.6 !important; /* Adds healthy breathing room between lines */
+}
+
+/* Force logo to white if it is a black PNG */
+.logo img {
+    
+}
+
+/* Fix menu hover readability */
+.header-bottom .header-nav > li > a:hover {
+    color: #f7911e !important;
+}
+.sticky-header.sticky .header-nav > li > a:hover {
+    color: #f7911e !important;
+}
+
+
+/* Fix hero content overlay trap */
+.hero-slider-single-item .content-box {
+    z-index: 10 !important;
 }
