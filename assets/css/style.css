@@ -23669,3 +23669,412 @@ footer a:hover {
 .hero-slider-single-item .content-box {
     z-index: 10 !important;
 }
+
+/* ----- Mobile Optimization Snippet ----- */
+@media (max-width: 768px) {
+    /* 1. Core Structure & Spacing */
+    .section-inner-gap {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .section-top-space {
+        margin-top: 40px !important;
+    }
+
+    /* 2. Force hidden logos to reappear and fit small screens cleanly */
+    .logo img, .mobile-logo img {
+        max-width: 140px !important;
+        height: auto !important;
+        display: block !important;
+    }
+
+    /* 3. Bulk up card text weight and contrast for outdoor readability */
+    .content p, p.text {
+        font-size: 15px !important;
+        color: #1A1A1A !important; 
+        line-height: 1.5 !important;
+    }
+
+    /* 4. Make all main action buttons highly thumb-friendly */
+    .btn {
+        display: inline-block;
+        min-height: 44px;
+        line-height: 44px;
+        padding: 0 24px !important;
+    }
+}
+
+/* ----- Promo Wrapper Fix for 4 Items ----- */
+@media (min-width: 992px) {
+  .promo-wrapper {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .promo-single-item {
+    flex: 1 1 25%;
+    min-width: 250px;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px) {
+  .promo-wrapper {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .promo-single-item {
+    flex: 1 1 50%;
+  }
+}
+
+/* ----- Hero Section Tweaks ----- */
+@media (max-width: 768px) {
+    .hero-bg, .hero-slider-single-item {
+        height: 75vh !important;
+        min-height: 75vh !important;
+    }
+    .hero-content {
+        background: rgba(0,0,0,0.55);
+        padding: 30px 20px !important;
+        border-radius: 8px;
+        margin: 15px;
+    }
+}
+
+/* ----- Contact Form Tweaks ----- */
+@media (max-width: 768px) {
+    .default-inner-form-wrapper input,
+    .default-inner-form-wrapper select {
+        height: 48px !important;
+        padding: 0 15px !important;
+        margin-bottom: 15px !important;
+    }
+    .default-inner-form-wrapper .mb-6 {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* ----- R&D Process Mobile Tweaks ----- */
+.custom-process-row .working-process-single-item {
+    margin: 20px auto;
+    position: relative;
+    max-width: 250px;
+}
+.custom-process-row .working-process-single-item::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 60px;
+    background: #f7911e;
+    bottom: -70px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+@media (max-width: 991px) {
+    .custom-process-row .working-process-single-item::after {
+        display: block;
+    }
+    .custom-process-row > div:last-child .working-process-single-item::after {
+        display: none;
+    }
+    .custom-process-row .box {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 60px auto;
+    }
+    .custom-process-row .icon {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+    }
+}
+@media (min-width: 992px) {
+    .custom-process-row {
+        position: relative;
+    }
+    .custom-process-row::before {
+        content: '';
+        position: absolute;
+        top: 100px;
+        left: 10%;
+        right: 10%;
+        height: 2px;
+        background: #f7911e;
+        z-index: 0;
+    }
+}
+
+/* ----- About Section Mobile Readability Fix ----- */
+@media (max-width: 768px) {
+    .about-display-section .content {
+        background: rgba(0, 0, 0, 0.75);
+        padding: 30px 20px;
+        border-radius: 8px;
+        margin: 20px 15px;
+    }
+    .about-display-section .content p {
+        color: #e0e0e0 !important;
+        font-size: 16px !important;
+    }
+    .about-display-section .title,
+    .about-display-section .sub-title,
+    .about-display-section .sup-title {
+        color: #ffffff !important;
+    }
+}
+
+/* ----- About Section Mobile Readability Fix ----- */
+@media (max-width: 768px) {
+    /* 1. Stack the layout: remove absolute positioning and shrink the image */
+    .about-display-wrapper .box {
+        display: flex;
+        flex-direction: column;
+    }
+    .about-display-wrapper .image {
+        height: 250px !important;
+        border-radius: 20px 20px 0 0 !important;
+    }
+    .about-display-wrapper .image::after {
+        display: none; /* remove dark tint if not needed */
+    }
+    .about-display-wrapper .content {
+        position: static !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        padding: 40px 20px !important;
+        width: 100% !important;
+        text-align: center;
+        background: #ffffff;
+        border-radius: 0 0 20px 20px;
+    }
+
+    /* 2. Fix the Sub-headline (ABOUT COMPANY) */
+    .about-display-wrapper .content .sup-title {
+        font-size: 13px !important;
+        letter-spacing: 2px !important;
+        margin-bottom: 10px !important;
+        display: block;
+    }
+
+    /* 3. Fix the Main Section Heading (PARTNER WITH EUROWELD) */
+    .about-display-wrapper .content .title {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+        margin-bottom: 15px !important;
+        font-weight: 700;
+        color: #301514 !important;
+    }
+
+    /* 4. Fix the Tagline text */
+    .about-display-wrapper .content .sub-title {
+        font-size: 18px !important;
+        line-height: 1.4 !important;
+        color: #e99640 !important;
+        margin-bottom: 15px !important;
+    }
+
+    /* 5. Fix the Body Paragraph Contrast & Readability */
+    .about-display-wrapper .content p {
+        font-size: 15px !important;
+        color: #1A1D20 !important;
+        line-height: 1.6 !important;
+        margin-bottom: 25px !important;
+    }
+}
+/* --- Desktop Rule: Hide the bottom app menu by default --- */
+.mobile-bottom-nav {
+    display: none;
+}
+
+/* --- Mobile Viewport Rule (Screens smaller than 768px) --- */
+@media (max-width: 768px) {
+    .mobile-bottom-nav {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 65px;
+        background-color: #111111;
+        border-top: 1px solid #222222;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 9999;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+
+    .mobile-bottom-nav .nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #888888;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 500;
+        width: 25%;
+        height: 100%;
+        transition: color 0.2s ease;
+    }
+
+    .mobile-bottom-nav .nav-icon {
+        font-size: 20px;
+        margin-bottom: 2px;
+    }
+
+    .mobile-bottom-nav .nav-item.active, 
+    .mobile-bottom-nav .nav-item:hover {
+        color: #f7911e !important;
+    }
+
+    body, footer {
+        padding-bottom: 75px !important;
+    }
+}
+
+
+/* ==========================================
+   SAFE EUROWELD RESPONSIVE OVERRIDES
+   ========================================== */
+
+@media screen and (max-width: 768px) {
+    
+    /* 1. FORCE TARGETED CARDS TO STACK SAFELY */
+    .service-display-wrapper .row, 
+    .premium-products-slider .swiper-wrapper {
+        display: block !important; 
+        width: 100% !important;
+        height: auto !important; /* OVERRIDE ISOTOPE HEIGHT CALCULATION */
+        padding: 0 15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 2. FORCE CARDS TO ACT AS SEPARATE ROWS */
+    .service-single-item, 
+    .premium-products-slider .swiper-slide {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 25px 0 !important; 
+        float: none !important; 
+        box-sizing: border-box !important;
+        position: static !important; /* Stop JS absolute positioning */
+    }
+
+
+
+    .premium-product-card {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* 3. PROTECT PRODUCT CARD IMAGES */
+    .premium-product-card img, 
+    .service-single-item img {
+        max-width: 100% !important;
+        height: auto !important;
+        display: block !important;
+        margin: 0 auto 15px auto !important;
+    }
+
+    /* 4. SAFE STICKY APP MENU (Isolated completely) */
+    /* Handled by previous injection, but let's re-apply just in case */
+    .mobile-bottom-nav {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        height: 60px !important;
+        background-color: #111111 !important;
+        border-top: 1px solid #222222 !important;
+        justify-content: space-around !important;
+        align-items: center !important;
+        z-index: 99999 !important;
+    }
+
+    .mobile-bottom-nav .nav-item {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        color: #888888 !important;
+        text-decoration: none !important;
+        font-size: 11px !important;
+    }
+
+    .mobile-bottom-nav .nav-item.active {
+        color: #E99640 !important;
+    }
+
+    body {
+        padding-bottom: 70px !important;
+    }
+}
+
+/* ==========================================
+   TASK 1: STANDARDIZE PRODUCT IMAGES
+   ========================================== */
+.premium-product-card .image-wrapper {
+    background-color: #ffffff !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 8px 8px 0 0;
+    aspect-ratio: 4/3; /* Enforce uniform ratio */
+    overflow: hidden;
+}
+
+.premium-product-card .image-wrapper img {
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: contain !important; /* Show full product clearly */
+    mix-blend-mode: multiply; /* Eliminates AI grey backgrounds */
+}
+
+/* --- Task 6: Compact Mobile Form --- */
+@media (max-width: 768px) {
+    .default-inner-form-wrapper input,
+    .default-inner-form-wrapper select {
+        height: 48px !important;
+        margin-bottom: 15px !important;
+    }
+    .default-inner-form-wrapper textarea {
+        height: 100px !important;
+        margin-bottom: 15px !important;
+    }
+    .default-inner-form-wrapper .mb-6 {
+        margin-bottom: 15px !important;
+    }
+    .default-inner-form-section {
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+}
+
+/* Mobile Horizontal Scroll for Filter Tabs */
+@media (max-width: 768px) {
+    .projects-gallery-filter-nav {
+        flex-wrap: nowrap !important;
+        overflow-x: auto !important;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start !important;
+        padding-bottom: 15px !important;
+        margin-bottom: 15px !important;
+        scrollbar-width: none; /* Firefox */
+    }
+    .projects-gallery-filter-nav::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+    .projects-gallery-filter-nav .btn {
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+        margin-right: 15px !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+
