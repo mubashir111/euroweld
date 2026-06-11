@@ -19909,12 +19909,18 @@ textarea {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+  gap: 20px;
+  padding: 20px 10px;
+}
+.working-process-display-wrapper::-webkit-scrollbar {
+  display: none;
 }
 
 @media (min-width: 768px) {
@@ -19927,6 +19933,8 @@ textarea {
 .working-process-single-item {
   position: static;
   margin-top: 80px;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
 }
 
 @media (min-width: 768px) {
