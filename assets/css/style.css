@@ -19827,6 +19827,12 @@ textarea {
   }
 }
 
+.service-single-item .icon img {
+  width: 200px;
+  height: 140px;
+  object-fit: contain;
+}
+
 .service-single-item .content .title {
   font-size: 25px;
   font-family: "Poppins", sans-serif;
