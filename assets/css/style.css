@@ -19309,11 +19309,19 @@ textarea {
 }
 
 .hero-slider-single-item .title {
-  font-size: 60px;
+  font-size: 42px;
   text-transform: uppercase;
-  line-height: 0.85;
-  margin-bottom: 20px;
+  line-height: 1.1;
+  margin-bottom: 15px;
   text-shadow: 0 6px 20px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+  .hero-slider-single-item .title {
+    font-size: 60px;
+    line-height: 0.95;
+    margin-bottom: 20px;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -19332,12 +19340,20 @@ textarea {
 }
 
 .hero-slider-single-item .sub-title {
-  font-size: 40px;
+  font-size: 24px;
   text-transform: uppercase;
-  line-height: 1;
-  margin-bottom: 45px;
+  line-height: 1.3;
+  margin-bottom: 30px;
   text-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
   font-weight: 400;
+}
+
+@media (min-width: 768px) {
+  .hero-slider-single-item .sub-title {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 45px;
+  }
 }
 
 @media (min-width: 1200px) {
