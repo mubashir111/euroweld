@@ -228,19 +228,10 @@
 
 
     /************************************************
-     * Project Filter
+     * Product Grid Pagination
+     * Uses pure CSS classes + Isotope's hide() API to avoid display:none collapse
      ***********************************************/
     $('.projects-wrapper').imagesLoaded(function () {
-        // filter items on button click
-        $('.projects-gallery-filter-nav').on('click', 'button', function () {
-            var filterValue = $(this).attr('data-filter');
-            $grid.isotope({ filter: filterValue });
-
-            $(this).siblings('.active').removeClass('active');
-            $(this).addClass('active');
-        });
-
-        // init Isotope
         var $grid = $('.projects-wrapper').isotope({
             itemSelector: '.filtr-item',
             percentPosition: true,
@@ -248,10 +239,98 @@
                 columnWidth: '.grid-sizer'
             }
         });
+
+        var ITEMS_PER_PAGE = 12;
+        var currentPage = 1;
+        var currentFilter = '';  // empty string = show all
+
+        function getFilteredItems() {
+            var $all = $grid.find('.filtr-item');
+            return currentFilter ? $all.filter('.' + currentFilter) : $all;
+        }
+
+        function applyPage() {
+            var $all = $grid.find('.filtr-item');
+            var $filtered = getFilteredItems();
+            var totalPages = Math.ceil($filtered.length / ITEMS_PER_PAGE);
+
+            if (currentPage > totalPages && totalPages > 0) currentPage = totalPages;
+            if (currentPage < 1) currentPage = 1;
+
+            var start = (currentPage - 1) * ITEMS_PER_PAGE;
+            var end = start + ITEMS_PER_PAGE;
+
+            // Mark which items should be visible this page
+            $all.removeClass('on-page');
+            $filtered.slice(start, end).addClass('on-page');
+
+            // Use Isotope's own filter - avoids the display:none height-collapse issue
+            $grid.isotope({ filter: '.on-page' });
+
+            renderPagination(totalPages);
+        }
+
+        function renderPagination(totalPages) {
+            var $p = $('#product-pagination');
+            if (!$p.length) return;
+            $p.empty();
+            if (totalPages <= 1) return;
+
+            var prevDisabled = (currentPage === 1) ? ' disabled' : '';
+            var nextDisabled = (currentPage === totalPages) ? ' disabled' : '';
+
+            $p.append('<button class="page-btn prev' + prevDisabled + '"><i class="icofont-rounded-left"></i></button>');
+
+            for (var i = 1; i <= totalPages; i++) {
+                var activeClass = (i === currentPage) ? ' active' : '';
+                $p.append('<button class="page-btn num' + activeClass + '" data-page="' + i + '">' + i + '</button>');
+            }
+
+            $p.append('<button class="page-btn next' + nextDisabled + '"><i class="icofont-rounded-right"></i></button>');
+        }
+
+        function scrollUp() {
+            var top = $('.projects-gallery-filter-nav').offset().top - 80;
+            $('html, body').animate({ scrollTop: top }, 400);
+        }
+
+        // Set initial page after Isotope finishes layout
+        setTimeout(applyPage, 300);
+
+        // Category filter buttons
+        $('.projects-gallery-filter-nav').on('click', 'button', function () {
+            var raw = $(this).attr('data-filter') || '*';
+            currentFilter = (raw === '*') ? '' : raw.replace(/^\./, '');
+            currentPage = 1;
+            applyPage();
+            $(this).siblings('.active').removeClass('active');
+            $(this).addClass('active');
+        });
+
+        // Pagination: page number
+        $(document).on('click', '#product-pagination .page-btn.num', function () {
+            currentPage = parseInt($(this).attr('data-page'), 10);
+            applyPage();
+            scrollUp();
+        });
+
+        // Pagination: previous
+        $(document).on('click', '#product-pagination .page-btn.prev:not(.disabled)', function () {
+            currentPage--;
+            applyPage();
+            scrollUp();
+        });
+
+        // Pagination: next
+        $(document).on('click', '#product-pagination .page-btn.next:not(.disabled)', function () {
+            currentPage++;
+            applyPage();
+            scrollUp();
+        });
     });
 
 
-    /************************************************
+        /************************************************
     * Hash Link Scroll To Top Prevent
     ***********************************************/
     $('a[href="#"]').on('click', (function (e) {
