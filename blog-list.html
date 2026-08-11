@@ -71,6 +71,7 @@
                                 <li><a href="about.html">About Us</a></li>
                                 <li><a href="products.html">Product</a></li>
                                 <li><a href="service-list.html">Services</a></li>
+                                <li><a href="blog-list.html">Blog</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                             <!-- End Header Logo -->
@@ -121,6 +122,7 @@
                             <li><a href="index.html"><span>Home</span></a></li>
                             <li><a href="about.html"><span>About Us</span></a></li>
                             <li><a href="service-list.html"><span>Services</span></a></li>
+                            <li><a href="blog-list.html"><span>Blog</span></a></li>
                             <li><a href="products.html"><span>Product</span></a></li>
                             <li><a href="contact.html"><span>Contact</span></a></li>
                         </ul>
@@ -160,6 +162,26 @@
             </div>
         </div>
         <!-- .....:::::: End Breadcrumb Section :::::.... -->
+
+        <!-- .....:::::: Start Blog List Section :::::.... -->
+        <div class="blog-list-section section-inner-gap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="section-content text-center mb-6">
+                            <h2 class="title">Latest News & Insights</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="dynamic-blog-list">
+                    <!-- Blogs will be loaded here via JS -->
+                    <div class="col-12 text-center py-5">
+                        <p>Loading blogs...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- .....:::::: End Blog List Section :::::.... -->
 
         <!-- .....:::::: Start Footer Section :::::.... -->
         <footer class="footer-section footer-bg">
@@ -230,6 +252,7 @@
                                     <li><a href="about.html">About Us</a></li>
                                     <li><a href="products.html">Products</a></li>
                                     <li><a href="service-list.html">Services</a></li>
+                                    <li><a href="blog-list.html">Blog</a></li>
                                     <li><a href="contact.html">Contact Us</a></li>
                                 </ul>
                             </div>
@@ -321,7 +344,73 @@
             <span class="nav-icon"><i class="icofont-tools"></i></span>
             <span class="nav-label">Services</span>
         </a>
+        <a href="blog-list.html" class="nav-item">
+            <span class="nav-icon"><i class="icofont-document-folder"></i></span>
+            <span class="nav-label">Blog</span>
+        </a>
     </div>
+
+    <!-- Blog API Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('https://onshore.tbo365.cloud/api/method/onshore.api.get_blogs?website=Euroweld', {
+                headers: { 'Authorization': 'token9897e6ee3838b6c:06d7193075244d6' }
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.message && data.message.success && data.message.blogs) {
+                        var real = data.message.blogs.filter(function(b) {
+                            var t = (b.title || '').toLowerCase();
+                            return t.indexOf('lorem') === -1 && t.indexOf('ipsum') === -1 && t.indexOf('dolor') === -1 && t.indexOf('test') === -1;
+                        });
+                        renderBlogs(real);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching blogs:', error);
+                    document.getElementById('dynamic-blog-list').innerHTML = '<div class="col-12 text-center py-5"><p>Error loading blogs.</p></div>';
+                });
+        });
+
+        function formatDate(dateString) {
+            if(!dateString) return '';
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('en-US', options);
+        }
+
+        function renderBlogs(blogs) {
+            const container = document.getElementById('dynamic-blog-list');
+            
+            if(blogs.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center py-5"><i class="icofont-document-folder" style="font-size:48px;color:#ccc;margin-bottom:15px;display:block;"></i><h5 style="color:#333;">No blog posts yet</h5><p style="color:#94a3b8;">Check back soon for news and updates.</p></div>';
+                return;
+            }
+
+            let html = '';
+            for(let i = 0; i < blogs.length; i++) {
+                const b = blogs[i];
+                const img = b.meta_image ? `https://onshore.tbo365.cloud${b.meta_image}` : 'assets/images/logo/euroweld_logo.png';
+                html += `
+                    <div class="col-lg-4 col-md-6 col-12 mb-5">
+                        <div class="blog-single-item" style="border: 1px solid #eee; border-radius: 5px; overflow: hidden; height: 100%; display: flex; flex-direction: column;">
+                            <div class="image" style="height: 250px; overflow: hidden;">
+                                <a href="blog-details.html?route=${b.route}"><img src="${img}" alt="${b.title}" style="width: 100%; height: 100%; object-fit: cover;"></a>
+                            </div>
+                            <div class="content" style="padding: 20px; flex-grow: 1; display: flex; flex-direction: column;">
+                                <ul class="blog-meta meta-box" style="margin-bottom: 15px; padding: 0; list-style: none; display: flex; font-size: 14px; color: #777;">
+                                    <li style="margin-right: 15px;"><i class="icofont-ui-calendar" style="color: #a31d20; margin-right: 5px;"></i> ${formatDate(b.published_on)}</li>
+                                    <li><i class="icofont-user" style="color: #a31d20; margin-right: 5px;"></i> ${b.blogger || 'Admin'}</li>
+                                </ul>
+                                <h4 class="title" style="margin-bottom: 15px; font-size: 20px;"><a href="blog-details.html?route=${b.route}">${b.title}</a></h4>
+                                <a href="blog-details.html?route=${b.route}" class="btn btn-sm btn-outline-primary mt-auto" style="align-self: flex-start;">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            container.innerHTML = html;
+        }
+    </script>
 
 </body>
 
