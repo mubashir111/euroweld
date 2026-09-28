@@ -1,4 +1,34 @@
 /* Premium Product Card Styles for Showcase */
+.product-detail-image-box {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    padding: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 460px;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-detail-image-box:hover {
+    box-shadow: 0 15px 35px rgba(163, 29, 32, 0.12);
+}
+
+.product-detail-image-box img {
+    max-height: 420px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.4s ease;
+}
+
+.product-detail-image-box:hover img {
+    transform: scale(1.04);
+}
+
 .premium-product-card {
     background: #ffffff;
     border-radius: 12px;
