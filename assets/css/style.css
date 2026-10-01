@@ -23872,6 +23872,8 @@ footer a:hover {
         -webkit-transform: none !important;
         padding: 40px 20px !important;
         width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
         text-align: center;
         background: #ffffff;
         border-radius: 0 0 20px 20px;
@@ -24131,4 +24133,16 @@ footer a:hover {
     .footer-widget-single-item ul li.mt-3 {
         margin-top: 5px !important;
     }
+}
+
+/* Mobile: match container padding to the .row gutter (1.5rem) so rows' negative
+   margins don't overflow the viewport and cause horizontal scroll. */
+@media (max-width: 991px) {
+  .container,
+  .container-fluid,
+  .container-sm,
+  .container-md,
+  .container-lg {
+    --bs-gutter-x: 1.5rem;
+  }
 }

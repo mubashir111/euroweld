@@ -337,5 +337,16 @@
         e.preventDefault ? e.preventDefault() : e.returnValue = false;
     }));
 
+    /************************************************
+     * Product Card: whole card opens the product details page
+    ***********************************************/
+    $(document).on('click', '.premium-product-card', function (e) {
+        if ($(e.target).closest('a, button').length) return; // let real links (e.g. Request Quote) work
+        var href = $(this).find('.title a').attr('href');
+        if (!href) return;
+        if (e.ctrlKey || e.metaKey) window.open(href, '_blank');
+        else window.location.href = href;
+    });
+
 
 })(jQuery);

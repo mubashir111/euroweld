@@ -407,3 +407,8 @@
     min-height: 400px;
     position: relative;
 }
+
+/* Whole card is clickable (see main.js) */
+.premium-product-card {
+    cursor: pointer;
+}
