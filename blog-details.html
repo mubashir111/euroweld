@@ -382,7 +382,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 return;
             }
 
-            fetch('https://onshore.tbo365.cloud/api/method/onshore.api.get_blog_detail?website=Euroweld&route=' + encodeURIComponent(route))
+            fetch('https://onshore.tbocloud.in/api/method/onshore.api.get_blog_detail?website=Euroweld&route=' + encodeURIComponent(route))
                 .then(response => response.json())
                 .then(data => {
                     if(data.message && data.message.success && data.message.blog) {
@@ -405,7 +405,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             const mainTitle = document.querySelector('.breadcrumb-section .title');
             if(mainTitle) mainTitle.innerText = blog.title;
             
-            const img = blog.meta_image ? `https://onshore.tbo365.cloud${blog.meta_image}` : '';
+            const img = blog.meta_image ? `https://onshore.tbocloud.in${blog.meta_image}` : '';
             const options = { year: 'numeric', month: 'short', day: 'numeric' };
             const dateStr = blog.published_on ? new Date(blog.published_on).toLocaleDateString('en-US', options) : '';
             
