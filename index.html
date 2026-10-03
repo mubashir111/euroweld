@@ -49,8 +49,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="stylesheet" href="assets/css/plugins/nice-select.css">
     <link rel="stylesheet" href="assets/css/plugins/venobox.min.css">
     <link rel="stylesheet" href="assets/css/plugins/aos.min.css">
-    <link rel="stylesheet" href="assets/css/style.css?v=20261001">
-    <link rel="stylesheet" href="assets/css/premium-products.css?v=20261001">
+    <link rel="stylesheet" href="assets/css/style.css?v=20261003">
+    <link rel="stylesheet" href="assets/css/premium-products.css?v=20261003">
 </head>
 
 <body>
@@ -710,59 +710,57 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                     <div class="col-xl-6 offset-xl-1">
                         <div class="default-inner-form-wrapper">
-                            <form class="form-group" action="mailto:info@euroweld.co.uk" method="post" enctype="text/plain">
+                            <form id="quote-form" class="form-group" novalidate>
                                 <div class="row mb-n6">
                                     <div class="col-md-6 col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
                                         <div class="form-group-single-item">
-                                            <input type="text" placeholder="Name *" required="required">
+                                            <input type="text" name="name" placeholder="Full Name *" required>
                                         </div>
-                                        <!-- End Form Group Single Item -->
                                     </div>
                                     <div class="col-md-6 col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
                                         <div class="form-group-single-item">
-                                            <input type="email" placeholder="Email *" required="required">
+                                            <input type="email" name="email" placeholder="Email *" required>
                                         </div>
-                                        <!-- End Form Group Single Item -->
                                     </div>
                                     <div class="col-md-6 col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
                                         <div class="form-group-single-item">
-                                            <input type="tel" placeholder="Phone *" required="required">
+                                            <input type="text" name="company" placeholder="Company Name">
                                         </div>
-                                        <!-- End Form Group Single Item -->
                                     </div>
                                     <div class="col-md-6 col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
                                         <div class="form-group-single-item">
-                                            <input type="text" placeholder="Location *" required="required">
+                                            <input type="text" name="city" placeholder="City">
                                         </div>
-                                        <!-- End Form Group Single Item -->
+                                    </div>
+                                    <div class="col-md-6 col-12 mb-6">
+                                        <div class="form-group-single-item">
+                                            <select name="country" required><option value="">Select Country *</option><option value="UK">United Kingdom</option><option value="UAE">United Arab Emirates</option><option value="KSA">Saudi Arabia</option><option value="Qatar">Qatar</option><option value="Bahrain">Bahrain</option><option value="Kuwait">Kuwait</option><option value="Oman">Oman</option><option value="India">India</option><option value="USA">United States</option><option value="Other">Other</option></select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12 mb-6">
+                                        <div class="form-group-single-item quote-phone">
+                                            <select name="country_code" aria-label="Country code"><option value="+44" data-country="UK">+44 (UK)</option><option value="+971" data-country="UAE">+971 (UAE)</option><option value="+966" data-country="KSA">+966 (KSA)</option><option value="+974" data-country="Qatar">+974 (QAT)</option><option value="+973" data-country="Bahrain">+973 (BHR)</option><option value="+965" data-country="Kuwait">+965 (KWT)</option><option value="+968" data-country="Oman">+968 (OMN)</option><option value="+91" data-country="India">+91 (IND)</option><option value="+1" data-country="USA">+1 (USA)</option><option value="" data-country="Other">Other</option></select>
+                                            <input type="tel" name="mobile" placeholder="Mobile Number *" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 col-12 mb-6">
+                                        <div class="form-group-single-item">
+                                            <input type="text" id="quote-subject" name="product" placeholder="Product Name *" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-12 mb-6">
+                                        <div class="form-group-single-item">
+                                            <input type="number" id="quote-quantity" name="qty" placeholder="Quantity" min="1">
+                                        </div>
                                     </div>
                                     <div class="col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
                                         <div class="form-group-single-item">
-                                            <input type="text" id="quote-subject" placeholder="Subject / Product Name *" required="required">
+                                            <textarea name="message" rows="4" placeholder="Additional details / specifications..."></textarea>
                                         </div>
-                                        <!-- End Form Group Single Item -->
-                                    </div>
-                                    <div class="col-md-6 col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
-                                        <div class="form-group-single-item">
-                                            <input type="number" id="quote-quantity" placeholder="Estimated Quantity" min="1">
-                                        </div>
-                                        <!-- End Form Group Single Item -->
-                                    </div>
-                                    <div class="col-md-6 col-12 mb-6">
-                                        <!-- Start Form Group Single Item -->
-                                        <div class="form-group-single-item">
-                                            <input type="file" id="quote-attachment" aria-label="Upload Specifications File" style="padding: 10px; background: #fff; width: 100%; border: 1px solid #ddd; border-radius: 5px;">
-                                        </div>
-                                        <!-- End Form Group Single Item -->
                                     </div>
                                     <div class="col-12 mb-6 text-center">
                                         <button type="submit" class="btn btn-lg btn-primary icon-space-right">&#x279C; Get a Quote </button>
+                                        <p class="quote-form-message" role="status" aria-live="polite"></p>
                                     </div>
                                 </div>
                             </form>
@@ -913,7 +911,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <script src="assets/js/plugins/ajax-mail.js"></script>
     <script src="assets/js/plugins/waypoint.js"></script>
     <script src="assets/js/plugins/counter.js"></script>
-    <script src="assets/js/main.js?v=20261001"></script>
+    <script src="assets/js/main.js?v=20261003"></script>
 
     <!-- Auto-populate Quote Form from URL -->
     <script>
@@ -935,6 +933,97 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
         });
     </script>
+    <!-- Request Quote: submit to ERP -->
+    <script>
+        (function ($) {
+            var REQUEST_QUOTE_URL = 'https://onshore.tbocloud.in/api/method/onshore.api.create_request_quote';
+            var $form = $('#quote-form');
+            var $msg = $form.find('.quote-form-message');
+
+            function val(name) {
+                return ($form.find('[name="' + name + '"]').val() || '').trim();
+            }
+
+            function slugify(text) {
+                return text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+            }
+
+            function showMessage(text, type) {
+                $msg.removeClass('success error').addClass(type).text(text);
+            }
+
+            // Keep the phone country code in sync with the selected country
+            $form.find('select[name="country"]').on('change', function () {
+                var country = $(this).val();
+                var $code = $form.find('select[name="country_code"]');
+                var $match = $code.find('option[data-country="' + country + '"]');
+                if ($match.length) {
+                    $code.val($match.val());
+                    $code.niceSelect && $code.niceSelect('update');
+                }
+            });
+
+            $form.on('submit', function (e) {
+                e.preventDefault();
+
+                var required = { name: 'Full Name', email: 'Email', country: 'Country', mobile: 'Mobile Number', product: 'Product Name' };
+                for (var key in required) {
+                    if (!val(key)) {
+                        showMessage('Please fill in: ' + required[key] + '.', 'error');
+                        return;
+                    }
+                }
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('email'))) {
+                    showMessage('Please enter a valid email address.', 'error');
+                    return;
+                }
+
+                var product = val('product');
+                var company = val('company');
+                var payload = {
+                    full_name: val('name'),
+                    email: val('email'),
+                    mobile_number: val('mobile'),
+                    mobile_country_code: $form.find('select[name="country_code"] option:selected').text().trim(),
+                    country: val('country'),
+                    company_name: (company + ' (euroweld.co.uk)').trim(),
+                    city: val('city'),
+                    message: val('message'),
+                    items: [{
+                        item_code: slugify(product),
+                        item_name: product,
+                        brand: 'Euroweld',
+                        qty: parseInt(val('qty'), 10) || 1
+                    }]
+                };
+
+                var $btn = $form.find('button[type="submit"]');
+                var btnHtml = $btn.html();
+                $btn.text('Sending...').prop('disabled', true);
+                showMessage('', '');
+
+                $.ajax({
+                    url: REQUEST_QUOTE_URL,
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(payload),
+                    success: function () {
+                        $form[0].reset();
+                        $form.find('select').niceSelect && $form.find('select').niceSelect('update');
+                        showMessage('Thank you! Your quote request has been submitted. Our team will contact you shortly.', 'success');
+                    },
+                    error: function (err) {
+                        console.error('Quote request failed:', err);
+                        showMessage('Sorry, something went wrong. Please try again or email us at info@euroweld.co.uk.', 'error');
+                    },
+                    complete: function () {
+                        $btn.html(btnHtml).prop('disabled', false);
+                    }
+                });
+            });
+        })(jQuery);
+    </script>
+
     <!-- Brochure Lead Capture Modal -->
     <div class="modal fade" id="brochureModal" tabindex="-1" aria-labelledby="brochureModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
